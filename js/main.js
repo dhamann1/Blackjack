@@ -1,12 +1,4 @@
-$(function(){
-
-//variables
-
-var deck = [];
-
-var suits = ['diamonds', 'hearts', 'spades', 'clubs']; 
-
-var values = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
+var deck =  [];
 
 var dealerHand = [];
 
@@ -15,65 +7,99 @@ var playerHand = [];
 
 
 //event listeners 
-    // add button to push another card into array
-    
-    // add button to stand which ends game and check for win
 
-//function 
+// restarts game, shuffles deck, gives two cards to both dealer and player
+$('.hit').on('click', grabCard);
+$('.stand').on('click', checkWin);
+$('.deal').on('click', init);
+
+
+// gives one card 
+$('')
+
+//checks win condition 
+
+
+
+//functions
 
 // make suits and values same as CSS 
 
 
-function createDeck(){
-    suits.forEach(function(suits){
-        values.forEach(function(values){
-            deck.push({Suits: suits, Values: values})
-        });
+// function createDeck() {
+//   suits.forEach(function (suits) {
+//     values.forEach(function (values) {
+//       deck.push({
+//         Suits: suits,
+//         Values: values
+//       })
+//     });
+//   });
+// };
+
+
+function createDeck() {
+    deck =  [
+        {face:'dA',value: 11}, {face:'dK', value: 10},{face:'dQ', value: 10},{face:'dJ', value: 10},{face:'d10', value: 10},{face:'d09', value: 9},{face:'d08', value: 8},{face:'d07', value: 7},{face:'d06', value: 6},{face:'d05', value: 5},{face:'d04', value: 4},{face:'d03', value: 3}, {face:'d02', value: 2}, {face:'hA', value: 11}, {face:'hK', value: 10}, {face:'hQ', value: 10}, {face:'hJ', value: 10}, {face:'h10', value: 10},{face:'h09', value: 9},{face:'h08', value: 8},{face:'h07', value: 7},{face:'h06', value: 6},{face:'h05', value: 5},{face:'h04', value: 4},{face:'h03', value: 3},{face:'h02', value: 2}, {face:'sA', value: 11}, {face:'sK', value: 10}, {face:'sQ', value: 10}, {face:'sJ', value: 10}, {face:'s10', value: 10},{face:'s09', value: 9},{face:'s08', value: 8},{face:'s07', value: 7},{face:'s06', value: 6},{face:'s05', value: 5},{face:'s04', value: 4},{face:'s03', value: 3},{face:'s02', value: 2}, {face: 'cA', value: 11}, {face: 'cK', value: 10}, {face: 'cQ', value: 10}, {face:'cJ', value: 10}, {face:'c10', value: 10},{face:'c09', value: 9},{face:'c08', value: 8},{face:'c07', value: 7},{face:'c06', value: 6}, {face:'c05', value: 5},{face:'c04', value: 4},{face:'c03', value: 3},{face:'c02', value: 2}];
+  };
+
+
+
+
+
+
+
+
+function grabCard() {
+  var randomNum = Math.floor(Math.random() * deck.length - 1);
+  if (deck.length !== 0){
+  var topCard = deck.splice([randomNum], 1)[0];
+  }
+  else {return;};
+  playerHand.push(topCard);
+  console.log(playerHand);
+};
+
+
+
+
+
+function checkWin() {
+    var sum = 0;
+    playerHand.forEach(function(card,idx){
+        sum += playerHand[idx].value;
     });
-};
-
-
-function grabCard(person){
-    var randomNum = Math.floor(Math.random() * deck.length-1);    
-    var topCard = deck.splice([randomNum],1);
-    person.push(topCard);
+  console.log(sum);
 };
 
 
 
 
+function render() {};
 
-function checkWin(
-
-){};
-
-function render(){};
-
-function init(){
-    deck = []; 
-    createDeck(); 
+function init() {
+  createDeck(); 
+  grabCard();
+  grabCard();
 };
 
-createDeck();
-console.log(deck.length);
-grabCard(playerHand);
-console.log(deck.length);
-grabCard(dealerHand); 
-console.log(deck.length);
-grabCard(playerHand);
-console.log(deck.length);
-grabCard(dealerHand);
-console.log(dealerHand);
-console.log(playerHand);
-console.log(dealerHand[1]);
-console.log(playerHand[1]);
-console.log(playerHand[0].Suits);
+init(); 
 
 
 
+
+function computeHand(hand){
+    //return the best total
+    //looping through cards & count aces 
+    //MIGHT DO IT IN A WHILE LOOP //if sum < 21 return sum && ace  count 
+    //however if sum is greater tahn 21 subtract 10 sum 
+}
+
+
+
+$(function () {
 
 
 
 
 });
-

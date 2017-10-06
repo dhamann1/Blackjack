@@ -1,0 +1,42 @@
+* {
+    outline: solid 1px red; √
+}
+
+
+body{
+    font-family: 'Ultra', serif;
+    
+}
+
+
+h1 {
+    text-align: center; 
+}
+
+.deck{
+    border: solid 1px black;
+    padding: 5%;
+    width: 50%; 
+    margin: 0 auto; 
+}
+
+
+.dealerHand{
+    border: solid 1px black;
+    padding: 5%;
+    width: 50%; 
+    margin: 0 auto;
+}
+
+.playerHand{
+    border: solid 1px black;
+    padding: 5%;
+    width: 50%; 
+    margin: 0 auto;
+}
+
+.buttons{
+    align-content: center; 
+    margin: 0 auto; 
+    display: inline-block; 
+}
