@@ -1,3 +1,4 @@
+
 var deck =  [];
 
 var dealerHand = [];
@@ -11,7 +12,7 @@ var playerHand = [];
 // restarts game, shuffles deck, gives two cards to both dealer and player
 $('.hit').on('click', grabCard);
 $('.stand').on('click', checkWin);
-$('.deal').on('click', init);
+$('.deal').on('click', dealCard);
 
 
 // gives one card 
@@ -57,19 +58,44 @@ function grabCard() {
   }
   else {return;};
   playerHand.push(topCard);
-  console.log(playerHand);
 };
+
+
+function dealCard (){
+    var randomNum1 = Math.floor(Math.random() * deck.length - 1);
+    var randomNum2 = Math.floor(Math.random() * deck.length - 1);
+    var randomNum3 = Math.floor(Math.random() * deck.length - 1);
+    var randomNum4 = Math.floor(Math.random() * deck.length - 1);
+
+    if (deck.length !== 0){
+    var topCard = deck.splice([randomNum1], 1)[0];
+    var secondCard = deck.splice([randomNum2], 1)[0];
+    var thirdCard = deck.splice([randomNum3], 1)[0];
+    var fourthCard = deck.splice([randomNum4], 1)[0];
+    
+    }
+    else {return;};
+    playerHand.push(topCard);
+    playerHand.push(secondCard);
+    dealerHand.push(thirdCard);
+    dealerHand.push(fourthCard);
+  };
 
 
 
 
 
 function checkWin() {
-    var sum = 0;
-    playerHand.forEach(function(card,idx){
-        sum += playerHand[idx].value;
+    var playerSum = 0;
+    var dealerSum = 0; 
+    playerHand.forEach(function(pCard,idx){
+        playerSum += playerHand[idx].value;
     });
-  console.log(sum);
+    dealerHand.forEach(function(dCard,idx){
+        dealerSum += dealerHand[idx].value;
+    });
+  console.log(playerSum);
+  console.log(dealerSum);
 };
 
 
@@ -79,8 +105,6 @@ function render() {};
 
 function init() {
   createDeck(); 
-  grabCard();
-  grabCard();
 };
 
 init(); 

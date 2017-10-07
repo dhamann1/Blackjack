@@ -26,6 +26,7 @@ h1 {
     padding: 5%;
     width: 50%; 
     margin: 0 auto;
+    display: inline;
 }
 
 .playerHand{
@@ -33,6 +34,7 @@ h1 {
     padding: 5%;
     width: 50%; 
     margin: 0 auto;
+    display: inline;
 }
 
 .buttons{
