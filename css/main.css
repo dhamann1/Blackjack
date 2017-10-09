@@ -5,6 +5,7 @@
 
 body{
     font-family: 'Ultra', serif;
+    margin: 0 auto; 
     
 }
 
@@ -17,7 +18,6 @@ h1 {
     border: solid 1px black;
     padding: 5%;
     width: 50%; 
-    margin: 0 auto; 
 }
 
 
@@ -25,16 +25,17 @@ h1 {
     border: solid 1px black;
     padding: 5%;
     width: 50%; 
-    margin: 0 auto;
-    display: inline;
 }
 
 .playerHand{
     border: solid 1px black;
     padding: 5%;
     width: 50%; 
-    margin: 0 auto;
-    display: inline;
+}
+
+.pCards{
+    float: left; 
+
 }
 
 .buttons{

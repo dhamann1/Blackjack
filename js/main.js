@@ -1,9 +1,9 @@
 
 var deck =  [];
 
-var dealerHand = [];
+var dealerHand = [{face:'sA',value: 11}];
 
-var playerHand = [];
+var playerHand = [{face:'dA',value: 11}];
 
 
 
@@ -72,7 +72,6 @@ function dealCard (){
     var secondCard = deck.splice([randomNum2], 1)[0];
     var thirdCard = deck.splice([randomNum3], 1)[0];
     var fourthCard = deck.splice([randomNum4], 1)[0];
-    
     }
     else {return;};
     playerHand.push(topCard);
@@ -88,15 +87,27 @@ function dealCard (){
 function checkWin() {
     var playerSum = 0;
     var dealerSum = 0; 
-    playerHand.forEach(function(pCard,idx){
-        playerSum += playerHand[idx].value;
+    var pAce = false; 
+    var dAce = false; 
+
+    playerHand.forEach(function(pCard,idx){       
+        playerSum += playerHand[idx].value;         
+        if (playerHand[idx].value === 11){
+            pAce = true;  
+        }
+        while(playerSum > 21 && pAce){
+            playerSum = playerSum - 10; 
+        }
     });
+
     dealerHand.forEach(function(dCard,idx){
-        dealerSum += dealerHand[idx].value;
+        dealerSum += dealerHand[idx].value;         
     });
   console.log(playerSum);
   console.log(dealerSum);
 };
+
+
 
 
 
