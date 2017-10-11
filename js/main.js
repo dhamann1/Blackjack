@@ -1,15 +1,14 @@
-$(function () {    
+$(function(){
 
 var deck =  [];
 
-var dealerHand = [{face:'sA',value: 11}];
+var dealerHand = [];
 
-var playerHand = [{face:'dA',value: 11}];
+var playerHand = [];
 
-playerCards = $('.pCards');
+var playerRender = $('.pCard');
 
-
-
+var dealerRender = $('.dCard');
 
 
 //event listeners 
@@ -18,27 +17,12 @@ playerCards = $('.pCards');
 $('.hit').on('click', grabCard);
 $('.stand').on('click', checkWin);
 $('.deal').on('click', dealCard); 
+$('.bet').on('click', betCash);
 
 
-
-//make it init then deal; 
-// $('.pCards').on('click', function(evt){
-//     console.dir(evt);
-// });
-
-// $('.dCards').on('click', function(evt){
-//     console.dir(evt);
-// });
-
-
-
-
-//functions
-
-
-
-
-
+playerRender.on('click', function(evt){
+    console.dir(evt);
+});
 
 function createDeck() {
     deck =  [
@@ -48,7 +32,7 @@ function createDeck() {
 
 function grabCard() {
   var randomNum = Math.floor(Math.random() * deck.length - 1);
-  if (deck.length !== 0){
+  if (deck.length !== 0 && playerHand.length <= 4){
   var topCard = deck.splice([randomNum], 1)[0];
   }
   else {return;};
@@ -78,69 +62,87 @@ function dealCard (){
   };
 
 
+function betCash(){
 
+}
+
+
+function computeHand(hand) {
+    var handSum = 0;
+    var cAce = 0; 
+    hand.forEach(function(dCard,edx){
+        handSum += hand[edx].value;  
+        if(hand[edx].value === 11){
+            cAce++; 
+        }   
+        while (handSum > 21 && cAce){
+            handSum = handSum - 10; 
+        } 
+    });
+    return handSum;
+}
 
 
 function checkWin() {
     var playerSum = 0;
     var dealerSum = 0; 
-    var pAce = false; 
-    var dAce = false; 
+    var p1= false; 
 
-    playerHand.forEach(function(pCard,idx){       
-        playerSum += playerHand[idx].value;         
-        if (playerHand[idx].value === 11){
-            pAce = true;  
-        }
-        while(playerSum > 21 && pAce){
-            playerSum = playerSum - 10; 
-        }
-    });
+    playerSum = computeHand(playerHand);
+    dealerSum = computeHand(dealerHand);
 
-    dealerHand.forEach(function(dCard,idx){
-        dealerSum += dealerHand[idx].value;         
-    });
     if (playerSum > dealerSum && playerSum <= 21){
-        console.log('Player 1 Wins');
-    } else if(dealerSum < playerSum && dealerSum <= 21){
-        console.log('Player 2 Wins');
+        p1 = true;
+        alert("Congrats You Won!");
+    } else if (dealerSum > playerSum && dealerSum <= 21){
+        p1 = false;
+        alert("Dealer Wins!");
+    } else if (dealerSum === playerSum){
+        alert("There's a tie, Don't worry you didn't lose any money")
     }
+    console.log(dealerHand);
+    console.log(dealerSum);
+    console.log(playerHand);
+    console.log(playerSum);
+    init(); 
+    render(); 
 };
 
 
-// remove and add clases 
-
-
-
 function render() {
+        playerRender.each(function(idx){
+            if (idx > playerHand.length - 1) {
+                $(this).removeClass().addClass('card outline');
+            } else {
+                $(this).removeClass().addClass(`card ${playerHand[idx].face}`);
+            }
+        })
+        dealerRender.each(function(idx){
+            if (idx > dealerHand.length - 1){
+                $(this).removeClass().addClass('card outline');
+            } 
+            
+            else if (idx === 1){
+                $(this).removeClass().addClass('card back');
+            }
+            else {
+                $(this).removeClass().addClass(`card ${dealerHand[idx].face}`);
+            }
+        })
+    }
 
-    playerCards.each(function(card, idx){
-            $('this').html('<img id="" src="theImg.png" />');
-        });
-    };
 
 
 
 function init() {
-  createDeck(); 
+    playerHand = [];
+    dealerHand = [];
+    createDeck(); 
+    render();
 };
 
+
 init(); 
-
-
-render(); 
-
-function computeHand(hand){
-    //return the best total
-    //looping through cards & count aces 
-    //MIGHT DO IT IN A WHILE LOOP //if sum < 21 return sum && ace  count 
-    //however if sum is greater tahn 21 subtract 10 sum 
-}
-
-
-
-
-
 
 
 });
