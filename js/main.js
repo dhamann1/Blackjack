@@ -1,4 +1,4 @@
-$(function(){
+// $(function(){
 
 var deck =  [];
 
@@ -6,23 +6,41 @@ var dealerHand = [];
 
 var playerHand = [];
 
-var playerRender = $('.pCard');
+var playerContainer = $('.playerHand');
 
-var dealerRender = $('.dCard');
+var dealerContainer = $('.dealerHand');
 
+var winner = null; 
 
-//event listeners 
-
-// restarts game, shuffles deck, gives two cards to both dealer and player
-$('.hit').on('click', grabCard);
-$('.stand').on('click', checkWin);
-$('.deal').on('click', dealCard); 
-$('.bet').on('click', betCash);
+var bankroll = 500;
+var bet = 0;
 
 
-playerRender.on('click', function(evt){
-    console.dir(evt);
+// d - dealer wins
+//p - player wins
+
+// t - tie 
+//dBL - dealer blackjack
+//pBL - player blackjack
+
+//pB - player busts
+
+
+$('.hit').on('click', function() {
+    grabCard(playerHand);
+    var playerSum = computeHand(playerHand);
+    if (playerSum > 21) winner = "pB";
+    render();
 });
+$('.stand').on('click', checkWin);
+$('.deal').on('click', function() {
+    init();
+    dealCard();
+}); 
+
+$('.bet').on('click', betMoney);
+
+
 
 function createDeck() {
     deck =  [
@@ -30,15 +48,21 @@ function createDeck() {
   };
 
 
-function grabCard() {
-  var randomNum = Math.floor(Math.random() * deck.length - 1);
-  if (deck.length !== 0 && playerHand.length <= 4){
+function grabCard(hand) {
+  var randomNum = Math.floor(Math.random() * deck.length);
   var topCard = deck.splice([randomNum], 1)[0];
-  }
-  else {return;};
-  playerHand.push(topCard);
-  render(); 
+  hand.push(topCard);
 };
+
+
+
+function betMoney(){
+    value = parseInt($("input[type='number']").val()); 
+    bet += value;
+};
+
+
+
 
 
 function dealCard (){
@@ -46,6 +70,7 @@ function dealCard (){
     var randomNum2 = Math.floor(Math.random() * deck.length - 1);
     var randomNum3 = Math.floor(Math.random() * deck.length - 1);
     var randomNum4 = Math.floor(Math.random() * deck.length - 1);
+    p1 = null;
 
     if (deck.length !== 0){
     var topCard = deck.splice([randomNum1], 1)[0];
@@ -58,77 +83,99 @@ function dealCard (){
     playerHand.push(secondCard);
     dealerHand.push(thirdCard);
     dealerHand.push(fourthCard);
+    if(computeHand(playerHand) === 21) {
+        winner = "pBL"; 
+    } else if (computeHand(dealerHand) === 21){
+        winner = "dBL"; 
+    }
     render(); 
   };
-
-
-function betCash(){
-
-}
-
 
 function computeHand(hand) {
     var handSum = 0;
     var cAce = 0; 
-    hand.forEach(function(dCard,edx){
-        handSum += hand[edx].value;  
-        if(hand[edx].value === 11){
-            cAce++; 
-        }   
-        while (handSum > 21 && cAce){
-            handSum = handSum - 10; 
-        } 
+    hand.forEach(function(card){
+        handSum += card.value;  
+        if(card.value === 11) cAce++; 
     });
+    while (handSum > 21 && cAce){
+        handSum = handSum - 10;
+        cAce--;
+    } 
     return handSum;
 }
 
 
 function checkWin() {
-    var playerSum = 0;
-    var dealerSum = 0; 
-    var p1= false; 
-
-    playerSum = computeHand(playerHand);
-    dealerSum = computeHand(dealerHand);
-
-    if (playerSum > dealerSum && playerSum <= 21){
-        p1 = true;
-        alert("Congrats You Won!");
-    } else if (dealerSum > playerSum && dealerSum <= 21){
-        p1 = false;
-        alert("Dealer Wins!");
-    } else if (dealerSum === playerSum){
-        alert("There's a tie, Don't worry you didn't lose any money")
+    var playerSum = computeHand(playerHand);
+    var dealerSum = computeHand(dealerHand);
+    while (dealerSum < 17){
+        grabCard(dealerHand);
+        dealerSum = computeHand(dealerHand);
+        checkWin();
+    } 
+    if (playerSum > dealerSum && playerSum < 21 || dealerSum > 21){
+        winner = "p";
+    } else if (playerSum === 21){
+        winner = "pBL"; 
     }
-    console.log(dealerHand);
-    console.log(dealerSum);
-    console.log(playerHand);
+    if (dealerSum > playerSum && dealerSum < 21){
+        winner = "d";
+    } else if (dealerSum === 21){
+        winner = "dBL"; 
+    }
+    if (dealerSum === playerSum){
+        winner = "t";
+    }
+    render();
     console.log(playerSum);
-    init(); 
-    render(); 
+    console.log(dealerSum);
+
 };
 
 
 function render() {
-        playerRender.each(function(idx){
-            if (idx > playerHand.length - 1) {
-                $(this).removeClass().addClass('card outline');
-            } else {
-                $(this).removeClass().addClass(`card ${playerHand[idx].face}`);
-            }
-        })
-        dealerRender.each(function(idx){
-            if (idx > dealerHand.length - 1){
-                $(this).removeClass().addClass('card outline');
-            } 
-            
-            else if (idx === 1){
-                $(this).removeClass().addClass('card back');
-            }
-            else {
-                $(this).removeClass().addClass(`card ${dealerHand[idx].face}`);
-            }
-        })
+        var className, cardEl;
+        playerContainer.html('');
+        playerHand.forEach(function(card, idx){
+            className = playerHand[idx].face;
+            cardEl = $(`<article class="card ${className}">`);
+            playerContainer.append(cardEl);     
+        });
+
+        dealerContainer.html('');
+        dealerHand.forEach(function(card, idx) {
+            var className = (idx === 0 && !winner) ? 'card back' : dealerHand[idx].face;
+            var cardEl = $(`<article class="card ${className}">`);
+            dealerContainer.append(cardEl);
+        });
+
+        winner === null && playerHand.length ? $('.deal').hide() : $('.deal').show();
+        
+
+        switch (winner){
+            case "p":
+                $('h3').empty().text("Player Wins!");
+                break;
+            case "d":
+                $('h3').empty().text("Dealer Wins!");
+                break;
+            case "pBL":
+                $('h3').empty().text("Player got Blackjack!");
+                break;
+            case "dBL":
+                $('h3').empty().text("Dealer got Blackjack!");
+                break;
+            case "t":
+                $('h3').empty().text("There's a Tie, Play again!");
+                break;
+            case "pB":
+                $('h3').empty().text("You Busted! You lose!");
+                break;
+            default: 
+                 $('h3').empty().text("Wecome to Blackjack. Good luck!");
+            break; 
+        }
     }
 
 
@@ -137,6 +184,7 @@ function render() {
 function init() {
     playerHand = [];
     dealerHand = [];
+    winner = null;
     createDeck(); 
     render();
 };
@@ -145,4 +193,4 @@ function init() {
 init(); 
 
 
-});
+// });

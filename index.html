@@ -17,30 +17,31 @@
     <header> 
         <h1>Blackjack</h1>
     </header>
-    <h2 class="dText"> Dealer's Hand </h2>
-    <section class="dealerHand">
-        <article class = "dCard"></article>
-        <article class = "dCard"></article>
+
+    <h2> Dealer's Hand </h2>
+
+    <section class="dealerSection">
+        <section class="dealerHand"></section>
     </section>
-    <section class = "deck"></section>
-    <section class = "buttons">
-            <!-- <div class="friend2field">
-                <input name="state" type="integer" id="state" maxlength="150">
-            </div> -->
-            <button class = "deal">Deal</button>
-            <button class ="hit">Hit</button>
-            <button class ="bet">Bet $5</button>
-            <button class ="stand"√>Stand</button> 
-            
-             </section>
-    <h2 class = "pText"> Your Hand </h2>
-    <section class = "playerHand">
-        <article class="pCard"></article>
-        <article class="pCard"></article>
-        <article class="pCard"></article>
-        <article class="pCard"></article>
-        <article class="pCard"></article>
-    </section>    
+
+
+    <section class="playerInteraction">
+        <section class="deck">Poker Chips</section>
+            <h3>Welcome to Blackjack. Good luck!</h3>
+        <input type="number" value=100>
+
+        <section class="buttons">
+            <button class="deal">Deal</button>
+            <button class="hit">Hit</button>
+            <button class="bet">Bet $5</button>
+            <button class="stand">Stand</button> 
+        </section>
+    </section>
+
+    <h2> Your Hand </h2>
+    <section class="playerSection">
+        <section class="playerHand"></section> 
+    </section>   
 </body>
 <script src="js/main.js"></script>
 </html>
