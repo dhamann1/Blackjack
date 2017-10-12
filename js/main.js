@@ -63,10 +63,15 @@ function createDeck() {
   };
 
   function betMoney(value){
-    parseInt(value);
-    bet += value;
-    
-    bankRoll -= bet;
+    // parseInt(value);
+    if (bankRoll <= 0){
+        
+
+    } else {
+        bankRoll -= bet;
+        bet += value;
+        
+    }
     $('.bankRoll').html(bankRoll); 
     $('.betPool').html(bet); 
 };
@@ -193,26 +198,59 @@ function render() {
         switch (winner){
             case "p":
                 $('h3').empty().text("Player Wins!");
+                bet += bet; 
+                bankRoll += bet;
+                $('.bankRoll').html(bankRoll); 
+                bet = 0; 
+                $('.betPool').html(bet);
                 break;
             case "d":
                 $('h3').empty().text("Dealer Wins!");
+                if (bankRoll < 0){
+                    bankRoll = 0; 
+                } else {bankRoll -= bet;}
+                $('.bankRoll').html(bankRoll); 
+                bet = 0;                 
+                $('.betPool').html(bet);
                 break;
             case "pBL":
                 $('h3').empty().text("Player got Blackjack!");
+                bet = (bet * 1.5); 
+                bankRoll += bet;
+                $('.bankRoll').html(bankRoll); 
+                bet = 0; 
+                $('.betPool').html(bet);    
                 break;
             case "dBL":
                 $('h3').empty().text("Dealer got Blackjack!");
+                bankRoll -= bet;
+                $('.bankRoll').html(bankRoll); 
+                bet = 0;                 
+                $('.betPool').html(bet);
                 break;
             case "t":
                 $('h3').empty().text("There's a Tie, Play again!");
+                bankRoll -= bet;
+                $('.bankRoll').html(bankRoll); 
+                bet = 0;                 
+                $('.betPool').html(bet);
                 break;
             case "pB":
                 $('h3').empty().text("You Busted! You lose!");
+                bankRoll -= bet;
+                $('.bankRoll').html(bankRoll); 
+                bet = 0;                 
+                $('.betPool').html(bet);
                 break;
             default: 
                  $('h3').empty().text("Good luck!");
             break; 
         }
+    }
+
+
+    if(bankRoll < 0){
+        bankRoll = 0; 
     }
 
 function init() {
@@ -229,3 +267,5 @@ init();
 
 
 // });
+
+
