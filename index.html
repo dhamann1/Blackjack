@@ -18,28 +18,33 @@
         <h1>Blackjack</h1>
     </header>
 
-    <h2> Dealer's Hand </h2>
-
-    <section class="dealerSection">
+    <h2>Dealer's Hand</h2>
+    <section class="cardSection">
         <section class="dealerHand"></section>
     </section>
 
 
     <section class="playerInteraction">
-        <section class="deck">Poker Chips</section>
             <h3>Welcome to Blackjack. Good luck!</h3>
-        <input type="number" value=100>
-
-        <section class="buttons">
+        <section class="playButtons">
             <button class="deal">Deal</button>
             <button class="hit">Hit</button>
-            <button class="bet">Bet $5</button>
             <button class="stand">Stand</button> 
+        </section>
+        <section>Bankroll: </section>
+        <section class="bankRoll">500</section>
+        <section>Your Bet: </section>
+        <section class="betPool"></section>
+        <section class="betButtons">
+            <button class="chip5">Bet $5</button>
+            <button class="chip25">Bet $25</button>
+            <button class="chip100">Bet $100</button>
+            <button class="reset">Reset</button>
         </section>
     </section>
 
     <h2> Your Hand </h2>
-    <section class="playerSection">
+    <section class="cardSection">
         <section class="playerHand"></section> 
     </section>   
 </body>

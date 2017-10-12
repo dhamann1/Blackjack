@@ -12,15 +12,15 @@ body{
 
 h1 {
     text-align: center; 
-    font-size: 50px; 
+    font-size: 40px; 
     padding: 0px;
     margin: 0px; 
 }
 
-h3 {
-  padding: 0%;
-  margin: 0%; 
+h3 { 
   font-size: 30px; 
+  padding: 0px;
+  margin: 0px; 
 }
 
 
@@ -57,60 +57,98 @@ h2 {
     
 } */
 
-.playerSection{
+/* .playerSection{
 
-    background-color: rgba(70, 177, 70, 0.48);
+    background-color: rgba(228, 232, 228, 0.3);
     min-height: 265px; 
-    width: 65%; 
+    width: 75%; 
+    border-radius: 25px; 
+}  */
 
-} 
 
-
-.dealerSection{
+.cardSection{
     
-        background-color: rgba(70, 177, 70, 0.48);
-        min-height: 265px; 
-        width: 65%; 
+        background-color: rgba(228, 232, 228, 0.3);
+        min-height: 200px; 
+        width: 75%; 
+        border-radius: 25px;
     
     } 
 
 
-/* .dCards{
-    float: right; 
-    margin: 2%;
+.playerInteraction{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    background-color: rgba(228, 232, 228, 0.3);
+    border-radius: 25px; 
+    width: 700px; 
+    height: 205px; 
+    padding: 10px; 
+    margin: 10px; 
+    font-size: 18px; 
 }
 
-.pCards{
-    float: left; 
-    margin: 2%;
-} */
-
-.buttons{
-    align-content: center; 
+.playButtons{
     margin: 0 auto; 
     display: inline-block;
     margin: 0%;
     padding: 0%; 
 }
 
-.deal{
-  font-size: 23px; 
-}
 
-.stand{
-  font-size: 23px; 
+.deal {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #1575eb;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
+  .hit {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #00F000;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
 
-}
 
-.hit{
-  font-size: 23px; 
-}
+  .stand {
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    background: #F00000;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+  }
+  
 
-.bet{
-  font-size: 23px; 
-}
 
 
-input[type="number"]{
-  font-size: 15px; 
-}
+.chip5{
+    font-size: 15px; 
+  }
+  
+  .chip25{
+    font-size: 15px; 
+  
+  }
+  
+  .chip100{
+    font-size: 15px; 
+  }
+
+
