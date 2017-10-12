@@ -1,6 +1,4 @@
-*{
-    border: 1px solid red;
-}
+
 
 body{
     font-family: 'Ewert', cursive;
@@ -9,12 +7,17 @@ body{
     background-image: url("../images/casino_table.png");
 }
 
+header{
+    text-align: center;
+}
+
 
 h1 {
     text-align: center;
-    font-size: 30px; 
+    font-size: 40px; 
     padding: 0px;
     margin: 0px; 
+    display: inline;
 }
 
 h3 { 
@@ -44,6 +47,7 @@ h2 {
 .playerInteraction{
     color: white;
     text-align: center;
+    position: relative; 
     background-color: rgba(228, 232, 228, 0.3);
     border-color: 1px solid black;
     border-radius: 50px; 
@@ -55,26 +59,33 @@ h2 {
     font-family: 'Press Start 2P', cursive;
     margin-left: 350px;
     margin-bottom: 0px;
+    margin-top: 20px; 
 }
 
 .girlHost{
-    float: right;
     height: 300px; 
-    margin-right: 535px; 
-    display: inline; 
+    display: block; 
+    position: absolute; 
+    top: 0px; 
+    left: 500px; 
 } 
 
-/* .bart2{
-    display: block; 
-    float: right;
-    height: 300px; 
-    margin-left: 150px; 
-    margin-top: 0px;
-    margin-right: 90%;
-    position: relative; 
-    bottom: 200px;
 
-} */
+.casinoHouse{
+    height: 250px;
+    position: center;
+    
+}
+
+
+
+.bart2{
+    height: 300px; 
+    display: block; 
+    position: absolute; 
+    top: 0px; 
+    right: 500px; 
+}
 
 
 .playButtons{

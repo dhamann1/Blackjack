@@ -1,4 +1,4 @@
-// $(function(){
+$(function(){
 
 var deck;
 
@@ -64,10 +64,14 @@ function createDeck() {
   };
 
 function betMoney(value){
-    bet += value;   
-    bankRoll -= value;         
-    $('.bankRoll').html(bankRoll); 
-    $('.betPool').html(bet); 
+    if (bankRoll <= 0){
+        return; 
+    } else {
+        bet += value;   
+        bankRoll -= value;         
+        $('.bankRoll').html(bankRoll); 
+        $('.betPool').html(bet); 
+    }
 };
 
 
@@ -175,7 +179,7 @@ function render() {
             $('.stand').show(); 
         }
 
-        if($('.deal').is(":hidden")){
+        if($('.deal').is(":hidden") || bankRoll <= 0){
             $('.chip10').hide();
             $('.chip25').hide();
             $('.chip100').hide();
@@ -195,7 +199,7 @@ function render() {
         switch (winner){
             case "p":
                 $('h3').empty().text("Player Wins!");
-                bet += bet; 
+                bet += bet;
                 bankRoll += bet;
                 $('.bankRoll').html(bankRoll); 
                 bet = 0; 
@@ -220,21 +224,27 @@ function render() {
                 break;
             case "dBL":
                 $('h3').empty().text("Dealer got Blackjack!");
-                bankRoll -= bet;
+                if (bankRoll < 0){
+                    bankRoll = 0; 
+                } else {
+                bankRoll -= bet;}   
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
                 $('.betPool').html(bet);
                 break;
             case "t":
                 $('h3').empty().text("There's a Tie, Play again!");
-                bankRoll -= bet;
+                bankRoll += bet;
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
                 $('.betPool').html(bet);
                 break;
             case "pB":
                 $('h3').empty().text("You Busted! You lose!");
-                bankRoll -= bet;
+                if ((bankRoll - bet) <= 0){
+                    bankRoll = 0; 
+                } else {
+                bankRoll -= bet;}   
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
                 $('.betPool').html(bet);
@@ -259,6 +269,6 @@ function init() {
 init(); 
 
 
-// });
+});
 
 
