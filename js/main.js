@@ -13,8 +13,14 @@ var dealerSum;
 
 var winner = null; 
 
-var bankRoll = 800;
+var bankRoll = 1000;
 var bet = 0;
+
+var sounds = {
+    haha: "http://www.richmolnar.com/Sounds/Nelson%20-%20Ha%20ha.wav",
+    woho: "http://www.richmolnar.com/Sounds/Homer%20-%20Woohoo!%20(1).wav",
+    hotdigity: "http://www.richmolnar.com/Sounds/Ned%20-%20Hot%20diggity.wav"
+}
 
 
 
@@ -209,7 +215,7 @@ function render() {
                 $('h3').empty().text("Dealer Wins!");
                 if (bankRoll < 0){
                     bankRoll = 0; 
-                } else {bankRoll -= bet;}
+                }
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
                 $('.betPool').html(bet);
@@ -226,8 +232,7 @@ function render() {
                 $('h3').empty().text("Dealer got Blackjack!");
                 if (bankRoll < 0){
                     bankRoll = 0; 
-                } else {
-                bankRoll -= bet;}   
+                }   
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
                 $('.betPool').html(bet);
@@ -243,8 +248,7 @@ function render() {
                 $('h3').empty().text("You Busted! You lose!");
                 if ((bankRoll - bet) <= 0){
                     bankRoll = 0; 
-                } else {
-                bankRoll -= bet;}   
+                }
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
                 $('.betPool').html(bet);
