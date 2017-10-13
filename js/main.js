@@ -19,9 +19,15 @@ var bet = 0;
 var sounds = {
     haha: "http://www.richmolnar.com/Sounds/Nelson%20-%20Ha%20ha.wav",
     woho: "http://www.richmolnar.com/Sounds/Homer%20-%20Woohoo!%20(1).wav",
-    hotdigity: "http://www.richmolnar.com/Sounds/Ned%20-%20Hot%20diggity.wav"
+    hotdigity: "http://www.richmolnar.com/Sounds/Ned%20-%20Hot%20diggity.wav",
+    comeagain: "http://www.richmolnar.com/Sounds/Apu%20-%20Please%20come%20again.wav",
+    shutup: "http://www.thesoundarchive.com/play-wav-files.asp?sound=simpsons/misc/casino.mp3"
 }
 
+var haha = new Audio(sounds.haha);
+var woho = new Audio(sounds.woho);
+var hotdigity = new Audio(sounds.hotdigity);
+var comeagain = new Audio(sounds.comeagain);
 
 
 
@@ -59,11 +65,6 @@ $('.reset').on('click', function(){
 
 });
 
-
-
-
-
-
 function createDeck() {
     deck =  [
         {face:'dA',value: 11}, {face:'dK', value: 10},{face:'dQ', value: 10},{face:'dJ', value: 10},{face:'d10', value: 10},{face:'d09', value: 9},{face:'d08', value: 8},{face:'d07', value: 7},{face:'d06', value: 6},{face:'d05', value: 5},{face:'d04', value: 4},{face:'d03', value: 3}, {face:'d02', value: 2}, {face:'hA', value: 11}, {face:'hK', value: 10}, {face:'hQ', value: 10}, {face:'hJ', value: 10}, {face:'h10', value: 10},{face:'h09', value: 9},{face:'h08', value: 8},{face:'h07', value: 7},{face:'h06', value: 6},{face:'h05', value: 5},{face:'h04', value: 4},{face:'h03', value: 3},{face:'h02', value: 2}, {face:'sA', value: 11}, {face:'sK', value: 10}, {face:'sQ', value: 10}, {face:'sJ', value: 10}, {face:'s10', value: 10},{face:'s09', value: 9},{face:'s08', value: 8},{face:'s07', value: 7},{face:'s06', value: 6},{face:'s05', value: 5},{face:'s04', value: 4},{face:'s03', value: 3},{face:'s02', value: 2}, {face: 'cA', value: 11}, {face: 'cK', value: 10}, {face: 'cQ', value: 10}, {face:'cJ', value: 10}, {face:'c10', value: 10},{face:'c09', value: 9},{face:'c08', value: 8},{face:'c07', value: 7},{face:'c06', value: 6}, {face:'c05', value: 5},{face:'c04', value: 4},{face:'c03', value: 3},{face:'c02', value: 2}];
@@ -79,7 +80,6 @@ function betMoney(value){
         $('.betPool').html(bet); 
     }
 };
-
 
 function grabCard(hand) {
   var randomNum = Math.floor(Math.random() * deck.length);
@@ -205,6 +205,7 @@ function render() {
         switch (winner){
             case "p":
                 $('h3').empty().text("Player Wins!");
+                woho.play();
                 bet += bet;
                 bankRoll += bet;
                 $('.bankRoll').html(bankRoll); 
@@ -213,6 +214,7 @@ function render() {
                 break;
             case "d":
                 $('h3').empty().text("Dealer Wins!");
+                haha.play(); 
                 if (bankRoll < 0){
                     bankRoll = 0; 
                 }
@@ -222,6 +224,7 @@ function render() {
                 break;
             case "pBL":
                 $('h3').empty().text("Player got Blackjack!");
+                hotdigity.play(); 
                 bet = (bet * 1.5); 
                 bankRoll += bet;
                 $('.bankRoll').html(bankRoll); 
@@ -230,6 +233,7 @@ function render() {
                 break;
             case "dBL":
                 $('h3').empty().text("Dealer got Blackjack!");
+                haha.play();                                
                 if (bankRoll < 0){
                     bankRoll = 0; 
                 }   
@@ -239,6 +243,7 @@ function render() {
                 break;
             case "t":
                 $('h3').empty().text("There's a Tie, Play again!");
+                comeagain.play(); 
                 bankRoll += bet;
                 $('.bankRoll').html(bankRoll); 
                 bet = 0;                 
@@ -246,6 +251,7 @@ function render() {
                 break;
             case "pB":
                 $('h3').empty().text("You Busted! You lose!");
+                haha.play();                
                 if ((bankRoll - bet) <= 0){
                     bankRoll = 0; 
                 }

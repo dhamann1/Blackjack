@@ -98,6 +98,14 @@ h2 {
     right: 500px; 
 }
 
+.dinoDealer{
+    height: 250px; 
+    display: block; 
+    position: absolute; 
+    top: -5px; 
+    right: 800px; 
+}
+
 
 .playButtons{
     margin: 0 auto; 
