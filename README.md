@@ -1,5 +1,5 @@
-## Blackjack
-Blackjack is a card game in the player competes against the dealer. The objective of the game is to defeat the dealer in one of the following ways: 
+# Blackjack
+Blackjack is a card game in which the player competes against the dealer. The objective of the game is to defeat the dealer in one of the following ways: 
 
 	* Get 21 points (Blackjack) 
 	* Attain a higher score than the dealer without exceeding 21 
@@ -10,7 +10,7 @@ Once a player is satisfied with their score and has not exceeded 21 ("bust"), th
 
 A player wins by not busting and having a higher total score than the dealer. 
 
-Bets are placed before cards are dealt. If the player busts or loses to the dealer, they lose their bet. If a player wins he receives his bet 1:1 and if a player blackjacks they are paid 1.5:1. 
+Bets are placed before cards are dealt. If the player busts or loses to the dealer, they lose their bet. If a player wins he receives his bet 1:1 and if a player gets blackjacks they are paid 1.5:1. 
 
 # Technologies Used
 	* Javascript
@@ -26,7 +26,8 @@ I'd like to add the following features:
 
 	* Add another player 
 	* Add animations to different win conditions
-	* Add poker chips to bet buttons
+	* Add a hover animation for cards to show them 
+	* Add poker chips images to bet buttons
 	* Allow a player to double their initial bet and stand after receiving only one more card (double down). 
 
 # Trello 

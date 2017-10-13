@@ -13,7 +13,6 @@ header{
     position: relative;
 }
 
-
 h1 {
     text-align: center;
     font-size: 40px; 
@@ -27,7 +26,6 @@ h3 {
   padding: 0px;
   margin: 0px; 
 }
-
 
 h2 {
     text-align: left; 
@@ -44,7 +42,6 @@ h2 {
         background-image: url("../images/greenFelt.jpg"); 
         background-repeat: no;        
     } 
-
 
 .playerInteraction{
     color: white;
@@ -72,7 +69,6 @@ h2 {
     left: 500px; 
 } 
 
-
 .casinoHouse{
     height: 250px;
     position: center;  
@@ -88,7 +84,6 @@ h2 {
 .mainContain { 
     display: inline-block; 
 }
-
 
 .bart2{
     height: 300px; 
@@ -106,14 +101,12 @@ h2 {
     right: 800px; 
 }
 
-
 .playButtons{
     margin: 0 auto; 
     display: inline;
     margin: 0%;
     padding: 0%; 
 }
-
 
 .deal {
     border-radius: 28px;
@@ -123,9 +116,9 @@ h2 {
     background: #1575eb;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-  }
-  
-  .hit {
+}
+
+.hit {
     border-radius: 28px;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
@@ -133,10 +126,10 @@ h2 {
     background: #00F000;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-  }
+}
 
 
-  .stand {
+.stand {
     border-radius: 28px;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
@@ -144,7 +137,7 @@ h2 {
     background: #F00000;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-  }
+}
   
 
 
@@ -157,9 +150,9 @@ h2 {
     background: #0040F0;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-  }
+}
   
-  .chip25{
+.chip25{
     border-radius: 28px;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
@@ -167,10 +160,9 @@ h2 {
     background: #2D5705;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+}
   
-  }
-  
-  .chip100{
+.chip100{
     border-radius: 28px;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
@@ -178,9 +170,9 @@ h2 {
     background: #000000;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
-  }
+}
 
-  .reset{
+.reset{
   border-radius: 28px;
   font-family: 'Press Start 2P', cursive;
   color: #000000;
@@ -188,4 +180,4 @@ h2 {
   background: #DBEB04;
   padding: 10px 20px 10px 20px;
   text-decoration: none;
-  }
+}

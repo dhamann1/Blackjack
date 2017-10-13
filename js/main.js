@@ -17,11 +17,10 @@ var bankRoll = 1000;
 var bet = 0;
 
 var sounds = {
-    haha: "http://www.richmolnar.com/Sounds/Nelson%20-%20Ha%20ha.wav",
-    woho: "http://www.richmolnar.com/Sounds/Homer%20-%20Woohoo!%20(1).wav",
-    hotdigity: "http://www.richmolnar.com/Sounds/Ned%20-%20Hot%20diggity.wav",
-    comeagain: "http://www.richmolnar.com/Sounds/Apu%20-%20Please%20come%20again.wav",
-    shutup: "http://www.thesoundarchive.com/play-wav-files.asp?sound=simpsons/misc/casino.mp3"
+    haha: "sounds/nelson.wav",
+    woho: "sounds/homer.wav",
+    hotdigity: "sounds/ned.wav",
+    comeagain: "sounds/apu.wav"
 }
 
 var haha = new Audio(sounds.haha);
@@ -42,7 +41,6 @@ $('.stand').on('click', checkWin);
 $('.deal').on('click', function() {
     init();
     dealCard();
-
 }); 
 
 $('.chip10').on('click', function(){
@@ -88,10 +86,10 @@ function grabCard(hand) {
 };
 
 function dealCard (){
-    var randomNum1 = Math.floor(Math.random() * deck.length - 1);
-    var randomNum2 = Math.floor(Math.random() * deck.length - 1);
-    var randomNum3 = Math.floor(Math.random() * deck.length - 1);
-    var randomNum4 = Math.floor(Math.random() * deck.length - 1);
+    var randomNum1 = Math.floor(Math.random() * deck.length-1);
+    var randomNum2 = Math.floor(Math.random() * deck.length-2);
+    var randomNum3 = Math.floor(Math.random() * deck.length-3);
+    var randomNum4 = Math.floor(Math.random() * deck.length-4);
     p1 = null;
 
     if (deck.length !== 0){
@@ -148,9 +146,6 @@ function checkWin() {
         winner = "t";
     }
     render();
-    console.log(playerSum);
-    console.log(dealerSum);
-
 };
 
 function render() {
@@ -267,12 +262,12 @@ function render() {
 
 
 function init() {
+    createDeck(); 
     playerHand = [];
     dealerHand = [];
     playerSum = 0;
     dealerSum = 0; 
     winner = null;
-    createDeck(); 
     render();
 };
 
