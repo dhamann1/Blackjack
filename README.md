@@ -1,4 +1,8 @@
 # Blackjack
+
+
+<a href="https://imgur.com/UqNYFFa"><img src="https://i.imgur.com/UqNYFFa.png?1" title="source: imgur.com" /></a>
+
 Blackjack is a card game in which the player competes against the dealer. The objective of the game is to defeat the dealer in one of the following ways: 
 
 	* Get 21 points (Blackjack) 
