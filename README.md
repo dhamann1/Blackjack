@@ -18,8 +18,8 @@ Bets are placed before cards are dealt. If the player busts or loses to the deal
 
 # Technologies Used
 	* Javascript
-	* HTML
 	* jQuery
+	* HTML/CSS
 
 # Getting Started
 <a href="https://dhamann1.github.io/blackjack/">https://dhamann1.github.io/blackjack/</a>
