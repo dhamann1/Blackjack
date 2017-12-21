@@ -22,7 +22,7 @@ Bets are placed before cards are dealt. If the player busts or loses to the deal
 	* HTML/CSS
 
 # Getting Started
-<a href="https://dhamann1.github.io/Simpsons-Blackjack/>
+<a href="https://dhamann1.github.io/Simpsons-Blackjack/</a>
 
 	
 # Next Steps
