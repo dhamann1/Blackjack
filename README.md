@@ -1,7 +1,7 @@
 # Blackjack
 
 
-<a href="https://imgur.com/UqNYFFa"><img src="https://i.imgur.com/UqNYFFa.png?1" title="source: imgur.com" /></a>
+<img src="https://imgur.com/ohZ3co4.png" title="source: imgur.com" /></a>
 
 Blackjack is a card game in which the player competes against the dealer. The objective of the game is to defeat the dealer in one of the following ways: 
 
@@ -22,7 +22,7 @@ Bets are placed before cards are dealt. If the player busts or loses to the deal
 	* HTML/CSS
 
 # Getting Started
-<a href="https://dhamann1.github.io/Simpsons-Blackjack/</a>
+<a href="https://dhamann1.github.io/Simpsons-Blackjack/">https://dhamann1.github.io/Simpsons-Blackjack</a>
 
 	
 # Next Steps
