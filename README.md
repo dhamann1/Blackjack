@@ -18,10 +18,7 @@ Bets are placed before cards are dealt. If the player busts or loses to the deal
 
 ## Screenshots 
 
-<img src="https://i.imgur.com/VO7Byoy.png">
-<img src="https://i.imgur.com/zOqsX6a.png">
-<img src="https://i.imgur.com/0EpYxBt.png">
-<img src="https://i.imgur.com/6ySnGcO.png">
+<img src="https://imgur.com/ohZ3co4.png"/> 
 
 
 ## Technologies Used
@@ -36,7 +33,7 @@ User stories and wire frames can be found on Trello: <a href="https://trello.com
 
 
 ## Installation
-1. Clone the repo from your terminal ``` git clone https://github.com/dhamann1/FilmPicks.git```
+1. Clone the repo from your terminal ``` git clone https://github.com/dhamann1/Blackjack.git```
 2. Open index.html 
 
 # Next Steps
