@@ -25,7 +25,7 @@ Bets are placed before cards are dealt. If the player busts or loses to the deal
 - JavaScript 
 - jQuery
 - HTML 
-- Bootstrap 
+- CSS
 
 ## The Design 
 
