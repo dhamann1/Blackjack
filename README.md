@@ -1,7 +1,5 @@
 # Blackjack
-
-
-<img src="https://imgur.com/ohZ3co4.png" title="source: imgur.com" /></a>
+## Overview
 
 Blackjack is a card game in which the player competes against the dealer. The objective of the game is to defeat the dealer in one of the following ways: 
 
@@ -16,23 +14,32 @@ A player wins by not busting and having a higher total score than the dealer.
 
 Bets are placed before cards are dealt. If the player busts or loses to the dealer, they lose their bet. If a player wins he receives his bet 1:1 and if a player gets blackjacks they are paid 1.5:1. 
 
-# Technologies Used
-	* Javascript
-	* jQuery
-	* HTML/CSS
+**Visit here:** <a href="https://dhamann1.github.io/Blackjack/">Blackjack</a>
 
-# Getting Started
-<a href="https://dhamann1.github.io/Blackjack/">https://dhamann1.github.io/Blackjack/</a>
+## Screenshots 
 
-	
+<img src="https://i.imgur.com/VO7Byoy.png">
+<img src="https://i.imgur.com/zOqsX6a.png">
+<img src="https://i.imgur.com/0EpYxBt.png">
+<img src="https://i.imgur.com/6ySnGcO.png">
+
+
+## Technologies Used
+- JavaScript 
+- jQuery
+- HTML 
+- Bootstrap 
+
+## The Design 
+
+User stories and wire frames can be found on Trello: <a href="https://trello.com/b/3mzvtZUQ/blackjack"> Blackjack Planning Board</a>
+
+
+## Installation
+1. Clone the repo from your terminal ``` git clone https://github.com/dhamann1/FilmPicks.git```
+2. Open index.html 
+
 # Next Steps
-I'd like to add the following features:
-
-	* Add another player 
-	* Add animations to different win conditions
-	* Add a hover animation for cards to show them 
-	* Add poker chips images to bet buttons
-	* Allow a player to double their initial bet and stand after receiving only one more card (double down). 
-
-# Trello 
-<a href="https://trello.com/b/3mzvtZUQ/blackjack">https://trello.com/b/3mzvtZUQ/blackjack/</a>
+- Add win condition animations 
+- Add a hover animation for cards to show them 
+- Add poker chips images to bet buttons
